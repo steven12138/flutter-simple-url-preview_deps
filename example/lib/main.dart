@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:simple_url_preview/simple_url_preview.dart';
+import 'package:simple_url_preview_v2/simple_url_preview.dart';
 
 void main() {
   runApp(const MyApp());

@@ -289,13 +289,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.27.5"
-  simple_url_preview:
+  simple_url_preview_v2:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "3.0.1"
+    version: "4.0.0"
   sky_engine:
     dependency: transitive
     description: flutter
