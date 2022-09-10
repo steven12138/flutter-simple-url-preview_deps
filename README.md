@@ -1,7 +1,7 @@
-# simple_url_preview 
-[![likes](https://badges.bar/simple_url_preview/likes)](https://pub.dev/packages/simple_url_preview/score)
-[![pub points](https://badges.bar/simple_url_preview/pub%20points)](https://pub.dev/packages/simple_url_preview/score)
-[![popularity](https://badges.bar/simple_url_preview/popularity)](https://pub.dev/packages/simple_url_preview/score)
+# simple_url_preview_v2 
+[![likes](https://badges.bar/simple_url_preview_v2/likes)](https://pub.dev/packages/simple_url_preview_v2/score)
+[![pub points](https://badges.bar/simple_url_preview_v2/pub%20points)](https://pub.dev/packages/simple_url_preview_v2/score)
+[![popularity](https://badges.bar/simple_url_preview_v2/popularity)](https://pub.dev/packages/simple_url_preview_v2/score)
 
 Flutter package to show url preview
 
@@ -17,11 +17,11 @@ Please use latest version of the package.
 
 ## How to use ?
 
-Add simple_url_preview to pubspec.yaml, and hit command 'flutter pub get'
+Add simple_url_preview_v2 to pubspec.yaml, and hit command 'flutter pub get'
 ```yaml
 dependencies:
   ...
-  simple_url_preview: ^3.0.1
+  simple_url_preview_v2: ^3.0.1
 ```
 
 #### 1) **Simple use:**

@@ -1,3 +1,7 @@
+## [4.0.0] - 9/10/2022.
+
+* Upgraded application with all its depedencies
+
 ## [3.0.1] - 15/06/2021.
 
 * Update readme

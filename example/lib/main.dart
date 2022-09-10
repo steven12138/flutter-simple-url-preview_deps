@@ -1,33 +1,37 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:simple_url_preview/simple_url_preview.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Simple Url Preview Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
         primaryColor: Colors.blue,
-        accentColor: Colors.white,
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
+            .copyWith(secondary: Colors.white),
       ),
-      home: MyHomePage(title: 'Simple Url Preview Demo'),
+      home: const MyHomePage(title: 'Simple Url Preview Demo'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, this.title}) : super(key: key);
-
   final String? title;
 
+  const MyHomePage({super.key, this.title});
+
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -50,15 +54,15 @@ class _MyHomePageState extends State<MyHomePage> {
         children: <Widget>[
           SimpleUrlPreview(
             url: _url,
-            bgColor: Theme.of(context).accentColor,
+            bgColor: Theme.of(context).colorScheme.secondary,
             isClosable: true,
             titleLines: 2,
             descriptionLines: 3,
             imageLoaderColor: Colors.white,
             previewHeight: 150,
-            previewContainerPadding: EdgeInsets.all(10),
-            onTap: () => print('Hello Flutter URL Preview'),
-            titleStyle: TextStyle(
+            previewContainerPadding: const EdgeInsets.all(10),
+            onTap: () => log('Hello Flutter URL Preview'),
+            titleStyle: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
               color: Colors.red,
@@ -73,10 +77,10 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: TextField(
               onChanged: (newValue) => _onUrlChanged(newValue),
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Enter the url',
               ),
             ),
