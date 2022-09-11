@@ -1,3 +1,7 @@
+## [4.0.1] - 9/11/2022.
+
+* Added shimmer effect to show when loading
+
 ## [4.0.0] - 9/10/2022.
 
 * Upgraded application with all its depedencies

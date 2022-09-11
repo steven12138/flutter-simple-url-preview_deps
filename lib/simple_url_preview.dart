@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:html/dom.dart';
 import 'package:html/parser.dart';
 import 'package:http/http.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:simple_url_preview_v2/widgets/preview_description.dart';
 import 'package:simple_url_preview_v2/widgets/preview_image.dart';
 import 'package:simple_url_preview_v2/widgets/preview_site_name.dart';
@@ -98,10 +99,13 @@ class _SimpleUrlPreviewState extends State<SimpleUrlPreview> {
   VoidCallback? _onTap;
   late bool _isShowLink;
 
+  late bool _isLoadingData;
+
   @override
   void initState() {
     super.initState();
     _getUrlData();
+    _isLoadingData = false;
   }
 
   @override
@@ -123,6 +127,8 @@ class _SimpleUrlPreviewState extends State<SimpleUrlPreview> {
   }
 
   void _getUrlData() async {
+    _isLoadingData = true;
+
     if (!isURL(widget.url)) {
       setState(() {
         _urlPreviewData = null;
@@ -157,6 +163,7 @@ class _SimpleUrlPreviewState extends State<SimpleUrlPreview> {
         _isVisible = true;
       });
     }
+    _isLoadingData = false;
   }
 
   void _extractOGData(Document document, Map data, String parameter) {
@@ -191,19 +198,33 @@ class _SimpleUrlPreviewState extends State<SimpleUrlPreview> {
       return const SizedBox();
     }
 
-    return Container(
-      padding: _previewContainerPadding,
-      height: _previewHeight,
-      child: Stack(
-        children: [
-          GestureDetector(
-            onTap: _onTap,
-            child: _buildPreviewCard(context),
-          ),
-          _buildClosablePreview(),
-        ],
-      ),
-    );
+    return _isLoadingData
+        ? Shimmer.fromColors(
+            // Wrap your widget into Shimmer.
+            baseColor: Colors.grey[200]!,
+            highlightColor: Colors.grey[350]!,
+            child: Card(
+              elevation: 1.0,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: SizedBox(
+                height: _previewHeight,
+              ),
+            ))
+        : Container(
+            padding: _previewContainerPadding,
+            height: _previewHeight,
+            child: Stack(
+              children: [
+                GestureDetector(
+                  onTap: _onTap,
+                  child: _buildPreviewCard(context),
+                ),
+                _buildClosablePreview(),
+              ],
+            ),
+          );
   }
 
   Widget _buildClosablePreview() {
@@ -225,6 +246,7 @@ class _SimpleUrlPreviewState extends State<SimpleUrlPreview> {
   }
 
   Card _buildPreviewCard(BuildContext context) {
+    print(_isLoadingData);
     return Card(
       elevation: _elevation,
       color: _bgColor,

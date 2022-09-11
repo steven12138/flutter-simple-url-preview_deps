@@ -53,8 +53,9 @@ class _MyHomePageState extends State<MyHomePage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           SimpleUrlPreview(
+            elevation: 0,
             url: _url,
-            bgColor: Theme.of(context).colorScheme.secondary,
+            bgColor: Colors.transparent,
             isClosable: true,
             titleLines: 2,
             descriptionLines: 3,

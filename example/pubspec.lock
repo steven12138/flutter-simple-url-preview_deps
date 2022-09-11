@@ -289,13 +289,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.27.5"
+  shimmer:
+    dependency: transitive
+    description:
+      name: shimmer
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   simple_url_preview_v2:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "4.0.0"
+    version: "4.0.1"
   sky_engine:
     dependency: transitive
     description: flutter
