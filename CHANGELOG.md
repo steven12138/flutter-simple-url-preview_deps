@@ -1,3 +1,6 @@
+## [4.0.2] - 9/13/2022.
+
+* Solved an error with the catched_network_image
 ## [4.0.1] - 9/11/2022.
 
 * Added shimmer effect to show when loading
