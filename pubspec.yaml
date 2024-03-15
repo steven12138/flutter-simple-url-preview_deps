@@ -9,7 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  http: ^0.13.5
+  http: ^1.0.0
   html: ^0.15.0
   url_launcher: ^6.1.5
   string_validator: ^0.3.0
